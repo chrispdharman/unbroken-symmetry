@@ -1,6 +1,18 @@
 /* GENERIC STYLE */
 p {
-	font-family: "Bookman"
+	font-family: "Bookman";
+}
+
+p.new {
+	text-indent: 30px;
+}
+
+a {
+	color: rgb(0,170,170);
+}
+
+a:hover {
+	color: rgb(130,200,200);
 }
 
 body {
