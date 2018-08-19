@@ -1,4 +1,8 @@
 /* GENERIC STYLE */
+. {
+	position: static;
+}
+
 p {
 	font-family: "Bookman";
 }
