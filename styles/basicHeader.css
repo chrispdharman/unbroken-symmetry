@@ -103,6 +103,7 @@ div.text {
 div.text-box {
 	padding: 5px;
 	border: 1px solid black;
+	background-color: rgb(255,225,0);
 }
 
 /* position profile picture */
