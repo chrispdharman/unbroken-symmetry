@@ -34,7 +34,7 @@ input.submit {
 
 /*poitions the dropdown content*/
 form,
-div.projects-dropdown {
+div.dropdown-menu {
 	position: relative;
 	display: inline-block;
 }
@@ -83,7 +83,7 @@ button.curnttab:hover {
 	background-color: rgb(0,222,222);
 }
 
-.projects-dropdown:hover .dropdown-content {
+.dropdown-menu:hover .dropdown-content {
 	display: block;
 }
 

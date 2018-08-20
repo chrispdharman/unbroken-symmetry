@@ -5,9 +5,15 @@
 		<link rel="stylesheet" type="text/css" href="styles/basicHeader.css">
 		<title>Homepage</title>
 		<div class="tabs">
-			<form action="profile.html">	<button class="tablinks"> Profile </button>	</form>
+			<div class="dropdown-menu">
+				<button> Profiles </button>
+				<div class="dropdown-content">
+					<form action="profileChris.html">	<button class="tablinks-dropdown"> Chris </button>	</form>
+					<form action="profileTugba.html">	<button class="tablinks-dropdown"> Tu&gbreve;ba </button>	</form>
+				</div>
+			</div>
 			<form action="hobbies.html">	<button class="tablinks"> Hobbies </button>	</form>
-			<div class="projects-dropdown">
+			<div class="dropdown-menu">
 				<button class="curnttab"> Projects </button>
 				<div class="dropdown-content">
 					<form action="quanmech.html">	<button class="tablinks-dropdown"> Quantum Mechanic </button>	</form>
@@ -16,7 +22,7 @@
 			</div>
 		</div>
 		<div class="header">
-			ClearCut: Object Extraction
+			My Profile
 		</div>
 	</head>
 

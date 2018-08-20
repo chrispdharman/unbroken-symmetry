@@ -5,9 +5,15 @@
 		<link rel="stylesheet" type="text/css" href="styles/basicHeader.css">
 		<title>Homepage</title>
 		<div class="tabs">
-      <form action="profile.html">	<button class="curnttab"> Profile </button>	</form>
+			<div class="dropdown-menu">
+				<button class="curnttab"> Profiles </button>
+				<div class="dropdown-content">
+					<form action="profileChris.html">	<button class="tablinks-dropdown"> Chris </button>	</form>
+					<form action="profileTugba.html">	<button class="tablinks-dropdown curnttab"> Tu&gbreve;ba </button>	</form>
+				</div>
+			</div>
 			<form action="hobbies.html">	<button class="tablinks"> Hobbies </button>	</form>
-			<div class="projects-dropdown">
+			<div class="dropdown-menu">
 				<button> Projects </button>
 				<div class="dropdown-content">
 					<form action="quanmech.html">	<button class="tablinks-dropdown"> Quantum Mechanic </button>	</form>
@@ -26,9 +32,7 @@
 		<div class="text personal">
 			<img src="images/Bob.jpeg" alt="Profile picture here" height="175px" width="175px">
 			<p>
-				I am an enthusiastic programmer with an academic background in Theoretical Particle Physics and industry experience in the IT sector.
-				My existence in this world began a couple of months after the reunification of East and West Germany in 1990.
-				I was born on the same day that Poundland opened its first store, 13th December.
+				I am lovely!
 				I currently reside in the lovely coastal city of Brighton with my partner, whom I met at Sussex University.
 			</p>
 		</div>
