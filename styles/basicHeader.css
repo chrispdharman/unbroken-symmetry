@@ -23,6 +23,15 @@ body {
 	background-color: rgb(255,250,240);
 }
 
+/* Style the buttons used to retreive and submit files to local/web server */
+input {
+	background-color: rgb(245,240,230);
+}
+
+input.submit {
+	border: 3px inset rgb(220,220,220);
+}
+
 /*poitions the dropdown content*/
 form,
 div.projects-dropdown {
