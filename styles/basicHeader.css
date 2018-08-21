@@ -88,6 +88,7 @@ form,
 div.dropdown-menu {
 	position: relative;
 	display: inline-block;
+	white-space: normal;
 }
 
 /* HEADER STYLE */
@@ -148,6 +149,12 @@ div.header {
 	background-color: rgb(0,222,222);
 	padding-top: 5px;
 	padding-bottom: 5px;
+	width: 652px;
+}
+
+div.tabs,
+div.header {
+	white-space: nowrap;
 }
 
 /* BODY/PAGE-SPECIFIC STYLE */
@@ -192,7 +199,7 @@ div.text-box {
 	position: absolute;
 	display: inline;
 	margin-left: 5px;
-	width: 500px;
+	margin-right: 18px;
 }
 
 table, th, td {
