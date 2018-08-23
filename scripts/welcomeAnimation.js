@@ -1,2 +1,7 @@
-var myHeading = document.querySelector('p');
-myHeading.textContent = "Hello world";
+/* Define the function */
+function codeAddress() {
+  alert("It's alive!");
+}
+
+/* Execute the function on page loading */
+window.onload = codeAddress;
