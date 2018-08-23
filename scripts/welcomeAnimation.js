@@ -15,6 +15,9 @@ function animateMenu() {
     /* wait delay (in ms) to recursively run for next column*/
     setTimeout(animateMenu, delay);
   }
+  else {
+    return;
+  }
 }
 
 //animateMenu()
