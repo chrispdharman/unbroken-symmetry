@@ -161,7 +161,7 @@ div.header {
 
 div.file-select-text {
 	/*text style*/
-	text-align: left;
+	text-align: center;
 	/*background style*/
 	border: black;
 	border-style: dashed;
@@ -224,6 +224,10 @@ img.menuPointer {
 	padding-right: 70px;
 }
 
-img.id {
-
+img.inputImage {
+	position: relative;
+	height: 200px;
+	width: 200px;
+	margin-top: 15px;
+	border: 1px solid black;
 }
