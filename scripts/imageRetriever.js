@@ -6,7 +6,12 @@ function updateImage() {
   console.log("imgSrc value=",imgSrc);
 
   /* Display uploaded image in html */
-	image.src = window.URL.createObjectURL(imgSrc);
+  try {
+    image.src = window.URL.createObjectURL(imgSrc);
+  }
+  catch(err) {
+    console.log("Warning: no image file has been selected.",err.message);
+  }
   return false;
 };
 
