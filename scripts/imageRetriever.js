@@ -9,3 +9,8 @@ function updateImage() {
 	image.src = window.URL.createObjectURL(imgSrc);
   return false;
 };
+
+/* Function to execute clearCut program */
+function executeClearCut() {
+  console.log("ClearCutter running...");
+}
