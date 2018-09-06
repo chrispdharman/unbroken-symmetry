@@ -25,6 +25,9 @@
 		<div class="header">
 			My Profile
 		</div>
+
+		<!-- JavaScripts -->
+		<script type="text/javascript" src="scripts/imageRetriever.js"></script>
 	</head>
 
 	<!-- Main body of page -->
@@ -41,10 +44,8 @@
 			</p>
 
 			<!-- Download image -->
-			<form action="scripts/imageRetriever.js" enctype="multipart/form-data" method="post">
-				<input id="inputImg" type="file" name="image" accept="image/*" onChange="updateImage(thisFile)">
-				<input class="submit" type="submit" name="submit" value="Submit">
-			</form>
+			<input id="inputImg" type="file" name="image" accept="image/*" onchange="updateImage();">
+			<input class="submit" type="submit" name="submit" value="Submit">
 			<img id="inputImgDisplay" class="inputImage" src="images/NoImage.png" alt="No image on browser">
 		</div>
 
