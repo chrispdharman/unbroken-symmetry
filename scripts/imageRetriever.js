@@ -14,7 +14,7 @@ function updateImage() {
   }
   return false;
 };
-
+//comment
 /* Function to execute clearCut program */
 function executeClearCut() {
   console.log("ClearCutter running...");
