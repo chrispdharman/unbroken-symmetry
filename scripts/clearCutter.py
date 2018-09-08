@@ -1,13 +1,17 @@
-import tensorflow as tf
+#import tensorflow as tf
 import numpy as np
-from random import randint
+#from random import randint
 import matplotlib
 from PIL import Image
 matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
-from tensorflow.examples.tutorials.mnist import input_data
+import cgi
+from flask import Flask
+app = Flask(__name__)
 
+
+@app.route("/clearCutter.py")
 # object tracing method
 def traceObjectsInImage(origImage):
     # gradImage: create numpy 2D array of size (2n-1) of the original
@@ -57,21 +61,16 @@ def traceObjectsInImage(origImage):
     imCut = 0.08
     imCut = 0.06
     # display gradient image
-    plt.figure()
-    plt.imshow(np.absolute(gradImage.T), interpolation="nearest")
-    plt.figure()
-    plt.imshow(np.multiply((np.absolute(gradImage.T) < (1-imCut)*255),(np.absolute(gradImage.T) > imCut*255)))
+    #plt.figure()
+    #plt.imshow(np.absolute(gradImage.T), interpolation="nearest")
+    #plt.figure()
+    #plt.imshow(np.multiply((np.absolute(gradImage.T) < (1-imCut)*255),(np.absolute(gradImage.T) > imCut*255)))
 
     # merge channels
-    mrgIm1 = mergeChannelsTracedImage(gradImage.T, origImage.shape)
-    plt.figure()
-    plt.imshow(mrgIm1)
-
-    mrgIm2 = mergeChannelsTracedImage(
+    mrgIm = mergeChannelsTracedImage(
         np.multiply((np.absolute(gradImage.T) < (1 - imCut) * 255), (np.absolute(gradImage.T) > imCut * 255)),
         origImage.shape)
-    plt.figure()
-    plt.imshow(mrgIm2)
+    return mrgIm
 
 # Merge gradImage RGB channels to one image
 def mergeChannelsTracedImage(grdImg, origShape):
@@ -102,19 +101,11 @@ def rotIm(img):
 
 # main routine
 def main():
-    # load data
-    # mnist = tf.contrib.learn.datasets.load_dataset("mnist", one_hot=True)
-    mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
-    train_data = mnist.train.images
-    train_labels = np.asarray(mnist.train.labels, dtype=np.int32)
-    test_data = mnist.test.images
-    test_labels = np.asarray(mnist.test.labels, dtype=np.int32)
+    # Get fake image path from html --> js
+    data = cgi.FieldStorage()
+    imagePath = data["imgUrl"].value
 
     # import single image
-    imagePath = "/Users/ch392/Documents/dataScience/personalStudy/clearCut/images/Bob.jpeg"
-    imagePath = "/Users/ch392/Documents/dataScience/personalStudy/clearCut/images/minimal1.jpg"
-    imagePath = "/Users/ch392/Documents/dataScience/personalStudy/clearCut/images/colorful1.jpeg"
-    imagePath = "/Users/ch392/Documents/dataScience/personalStudy/clearCut/images/john1.jpg"
     image = np.array(Image.open(imagePath))
     #print("Image size: ", image.shape)
 
@@ -123,26 +114,18 @@ def main():
     plt.imshow(image)
 
     # View rgb channels
-    plt.figure()
-    plt.imshow(np.rot90(
-        np.concatenate((np.concatenate((rotIm(image[:, :, 0]), rotIm(image[:, :, 1]))), rotIm(image[:, :, 2])))))
-
-    # view a specific image of the data
     #plt.figure()
-    #plt.imshow(train_data[3].reshape(28, 28))
-    #plt.show()
-    #plt.clf()
+    #plt.imshow(np.rot90(np.concatenate((np.concatenate((rotIm(image[:, :, 0]), rotIm(image[:, :, 1]))), rotIm(image[:, :, 2])))))
 
     # execute clearCut method
-    traceObjectsInImage(image) # later think about implementing different methods as an argument
+    finalImg = traceObjectsInImage(image) # later think about implementing different methods as an argument
+    plt.figure()
+    plt.imshow(finalImg)
     plt.show()
     exit()
 
-    # view a random image of the data
-    plt.clf()
-    plt.figure()
-    plt.imshow(train_data[randint(0, train_data.shape[0])].reshape(28, 28))
-    plt.show()
+#main()
+#exit()
 
-main()
-exit()
+if __name__ == "__main__":
+    app.run()
