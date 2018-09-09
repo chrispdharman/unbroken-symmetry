@@ -11,7 +11,6 @@ from flask import Flask
 app = Flask(__name__)
 
 
-@app.route("/clearCutter.py")
 # object tracing method
 def traceObjectsInImage(origImage):
     # gradImage: create numpy 2D array of size (2n-1) of the original
@@ -98,7 +97,7 @@ def mergeChannelsTracedImage(grdImg, origShape):
 def rotIm(img):
     return np.rot90(img, 1, (1,0))
 
-
+@app.route("/clearCutter", methods='POST')
 # main routine
 def main():
     # Get fake image path from html --> js

@@ -2,12 +2,11 @@
 function executeClearCut() {
   console.log("ClearCutter running...");
 
-  /* Identify html element */
-  var imgSrc = document.getElementById("inputImg").files[0])
-
   /* Display uploaded image in html */
   try {
-    image.src = window.URL.createObjectURL(imgSrc);
+    /* Identify html element */
+    var imgSrc = document.getElementById("inputImg").files[0];
+    //console.log(imgSrc)
   }
   catch(err) {
     console.log("Warning: no image file has been selected.",err.message);
@@ -15,7 +14,7 @@ function executeClearCut() {
   }
 
   /* If image is found, execute python script */
-  /*$.ajax({
+  $.ajax({
     type: "POST",
     url: "http://localhost:3000/clearCutter.py",
     data: { imgUrl: image.src },
@@ -25,7 +24,7 @@ function executeClearCut() {
     error: function(response) {
       console.log(response);
     },
-  })*/
+  })
 
   return false;
 }

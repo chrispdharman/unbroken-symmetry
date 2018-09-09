@@ -45,8 +45,10 @@
 			</p>
 
 			<!-- Download image -->
-			<input id="inputImg" type="file" name="image" accept="image/*" onchange="updateImage();">
-			<input class="submit" type="submit" name="submit" value="Submit" onclick="executeClearCut();">
+			<form action="https://localhost:5000/clearCutter" method="POST" enctype = "multipart/form-data">
+				<input id="inputImg" type="file" name="image" accept="image/*" onchange="updateImage();">
+				<input class="submit" type="submit" name="submit" value="Submit" onclick="executeClearCut();">
+			</form>
 			<img id="inputImgDisplay" class="inputImage" src="images/NoImage.png" alt="No image on browser">
 		</div>
 
