@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<!-- Browser meta-data -->
+	<head>
+		<link rel="stylesheet" type="text/css" href="styles/basicHeader.css">
+		<title>Homepage</title>
+		<div class="tabs">
+			<form action="index.html">	<button class="tablinks"> Welcome </button>	</form>
+			<div class="dropdown-menu">
+				<button> Profiles </button>
+				<div class="dropdown-content">
+					<form action="profileChris.html">	<button class="tablinks-dropdown"> Chris </button>	</form>
+					<form action="profileTugba.html">	<button class="tablinks-dropdown"> Tu&gbreve;ba </button>	</form>
+				</div>
+			</div>
+			<form action="hobbies.html">	<button class="tablinks"> Hobbies </button>	</form>
+			<div class="dropdown-menu">
+				<button class="curnttab"> Projects </button>
+				<div class="dropdown-content">
+					<form action="quanmech.html">	<button class="tablinks-dropdown"> Quantum Mechanic </button>	</form>
+					<form action="clearcut.html">	<button class="tablinks-dropdown curnttab"> ClearCut </button>	</form>
+				</div>
+			</div>
+		</div>
+		<div class="header">
+			My Profile
+		</div>
+
+		<!-- JavaScripts -->
+		<script type="text/javascript" src="scripts/imageRetriever.js"></script>
+		<script type="text/javascript" src="scripts/imageProcessor.js"></script>
+	</head>
+
+	<!-- Main body of page -->
+	<body>
+		<div class="text"> <!-- State purpose of this page -->
+			<p>
+				Sample page to show how ClearCut software captures all the objects within an image using Edge Detection and then recognises the object using a trained CNN model.
+			</p>
+		</div>
+
+		<div class="file-select-text"> <!-- Input image -->
+			<p>
+				Submit image for object extraction and classification.
+			</p>
+
+			<!-- Download image -->
+			<form action="http://127.0.0.1:5000/clearcutter" enctype = "multipart/form-data">
+				<input id="inputImg" type="file" name="image" accept="image/*" onchange="updateImage();">
+				<input class="submit" type="submit" name="submit" value="Submit" onclick="executeClearCut();">
+			</form>
+			<img id="inputImgDisplay" class="inputImage" src="images/NoImage.png" alt="No image on browser">
+		</div>
+
+		<hr/>
+
+		<div class="table"> <!-- Table of Results -->
+			<table>
+				<!-- Table header -->
+				<thead>
+					<tr>
+						<th> Object Number </th>
+						<th> Sub-Image </th>
+						<th> Category </th>
+					</tr>
+				</thead>
+				<!-- Table entries -->
+				<tbody>
+					<!-- Needs to be generated -->
+					<tr>
+						<td> SubImage_1 </td>
+						<td> {{ clrCutImg1 }} </td>
+						<td> [Classification of object 1] </td>
+					</tr>
+					<tr>
+						<td> SubImage_2 </td>
+						<td> [Image of object 2] </td>
+						<td> [Classification of object 2] </td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+
+</html>

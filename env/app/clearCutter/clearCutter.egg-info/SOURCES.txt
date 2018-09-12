@@ -1,0 +1,6 @@
+clearCutter/__init__.py
+clearCutter.egg-info/PKG-INFO
+clearCutter.egg-info/SOURCES.txt
+clearCutter.egg-info/dependency_links.txt
+clearCutter.egg-info/requires.txt
+clearCutter.egg-info/top_level.txt
