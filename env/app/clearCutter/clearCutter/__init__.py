@@ -107,6 +107,8 @@ def clearcutter():
         # Get fake image path from html --> js
         data = cgi.FieldStorage()
         return "data here"
+
+
         imagePath = data["imgUrl"].value
         return imagePath
 

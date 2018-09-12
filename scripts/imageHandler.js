@@ -39,14 +39,23 @@ function executeClearCut() {
   /* If image is found, execute python script */
   $.ajax({
     type: "POST",
+    dataType: "text",
+    /*url: "http://127.0.0.1:5000/clearCutter",*/
+    url: "env/app/clearCutter/clearCutter/__init__.py",
+    contentType: 'application/x-www-form-urlencoded',
     data: inputs,
-    url: "http://127.0.0.1:5000/clearCutter",
     processData: false,
     success: function(response) {
+      if (!$.trim(data)){
+        alert("What follows is blank: " + data);
+      }
+      else{
+        alert("What follows is not blank: " + data);
+      };
       console.log(response);
     },
     error: function(response) {
-      console.log(response);
+      console.log("ajax error: ",response);
     },
   })
 
