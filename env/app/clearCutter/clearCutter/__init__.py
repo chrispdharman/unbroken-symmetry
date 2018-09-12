@@ -11,6 +11,9 @@ from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
+# Enable troubleshooting of cgi
+#cgitb.enable()
+
 # object tracing method
 def traceObjectsInImage(origImage):
     # gradImage: create numpy 2D array of size (2n-1) of the original
@@ -103,6 +106,7 @@ def clearcutter():
     if request.method == 'POST':
         # Get fake image path from html --> js
         data = cgi.FieldStorage()
+        return "data here"
         imagePath = data["imgUrl"].value
         return imagePath
 
